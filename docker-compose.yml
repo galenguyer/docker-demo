@@ -4,6 +4,8 @@ services:
     image: docker-demo
     container_name: docker-demo
     restart: unless-stopped
+    command: 
+      - "--access-logfile=-"
     environment:
       - "REDIS_HOST=redis"
     ports:
