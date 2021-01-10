@@ -12,7 +12,7 @@ requirements.txt file. These packages will be installed to the virtual environme
 global system. Use `pip install -r requirements.txt`
 
 ### Running Your App
-First, make sure Redis is installed and running. On Debian/Ubuntu, this can be done with `sudo apt install debian`
+First, make sure Redis is installed and running. On Debian/Ubuntu, this can be done with `sudo apt install redis`
 
 You can run your app with the following command: `gunicorn demo:APP --bind=localhost:5000`
 
