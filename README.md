@@ -15,7 +15,20 @@ global system.
 - ` pip install -r requirements.txt`
 
 ### Running Your App
+First, start up Redis:
+- `docker run --name redis --detach --interactive --tty --rm --publish 6379:6379 --network br0 redis`
+
+This can also be written as `docker run -n redis -dit --rm -p 6379:6379 --network br0 redis`
+
 You can run your app with the following command: 
 - `gunicorn demo:APP --bind=localhost:5000`
 
-To configure it, do some other stuff I'll add in a bit
+Awesome! You now have a working thingy. Now we're gonna make it work better
+
+## Running in Docker
+
+First, build with `docker build -t docker-demo .`. Then run with the command `docker run --name docker-demo --detach --interactive --tty --rm --publish 80:8080 --network br0 --env REDIS_HOST="redis" docker-demo`
+
+This can also be written as `docker run --name docker-demo -dit --rm -p 80:8080 --network br0 -e REDIS_HOST="redis" docker-demo`
+
+You can now `curl localhost` and get your counter!

@@ -16,7 +16,7 @@ else:
 
 APP.secret_key = APP.config['SECRET_KEY']
 
-r = redis.Redis(host=APP.config['REDIS_HOST'], port=APP.config['REDIS_PORT'])
+r = redis.Redis(host=APP.config['REDIS_HOST'], port=int(APP.config['REDIS_PORT']))
 
 @APP.route('/')
 def _index():
