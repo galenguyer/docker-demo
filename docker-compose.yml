@@ -1,0 +1,27 @@
+version: "3.7"
+services:
+  docker-demo:
+    image: docker-demo
+    container_name: docker-demo
+    restart: unless-stopped
+    environment:
+      - "REDIS_HOST=redis"
+    ports:
+      - "80:8080"
+    networks:
+      - br0
+  redis:
+    image: redis
+    container_name: redis
+    networks:
+      - br0
+    volumes:
+      - type: volume
+        source: redis
+        target: /data
+networks:
+  br0:
+    name: br0
+    driver: bridge
+volumes:
+  redis:
