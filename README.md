@@ -32,3 +32,18 @@ First, build with `docker build -t docker-demo .`. Then run with the command `do
 This can also be written as `docker run --name docker-demo -dit --rm -p 80:8080 --network br0 -e REDIS_HOST="redis" docker-demo`
 
 You can now `curl localhost` and get your counter!
+
+
+## Notes
+
+### Redis as Docker
+Docker is extremely useful for running something like a database without installing it on your system. To run a temporary Redis instance that binds to `localhost:6379`, use the following command: `docker run --name redis --detach --interactive --tty --rm --publish 6379:6379 redis`
+
+This can also be written as `docker run --rm --name -dit redis -p 6379:6379 redis`
+
+### References:
+- [Install Docker](https://docs.docker.com/engine/install/)
+- [Install docker-compose](https://docs.docker.com/compose/install/)
+- [docker run](https://docs.docker.com/engine/reference/run/)
+- [Dockerfile](https://docs.docker.com/engine/reference/builder/)
+- [docker-compose](https://docs.docker.com/compose/compose-file/compose-file-v3/)
