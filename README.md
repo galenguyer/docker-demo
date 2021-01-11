@@ -25,6 +25,10 @@ Next, build the docker image with `docker build -t docker-demo .`. Then run with
 
 You can now `curl localhost` and get your counter!
 
+## Docker Compose
+
+Docker Compose makes deploying apps trivial. To deploy the app with the provided docker-compose file, simply run `docker-compose up -d` and it will build and deploy the application and database in the background with networking already configured.
+
 ## Notes
 
 ### Redis for Development
