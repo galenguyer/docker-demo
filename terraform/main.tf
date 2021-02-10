@@ -103,7 +103,7 @@ resource "azurerm_linux_virtual_machine" "docker-demo" {
     location              = "eastus2"
     resource_group_name   = azurerm_resource_group.docker-demo.name
     network_interface_ids = [azurerm_network_interface.docker-demo-nic.id]
-    size                  = "Standard_B1ls"
+    size                  = "Standard_B1s"
 
     os_disk {
         name                 = "docker-demo-osdisk"
