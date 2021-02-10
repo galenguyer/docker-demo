@@ -27,7 +27,7 @@ resource "azurerm_virtual_network" "docker-demo-vnet" {
 
 resource "azurerm_subnet" "docker-demo-subnet" {
  name                 = "docker-demo-subnet"
- resource_group_name  = azurerm_resource_group.cdn.name
+ resource_group_name  = azurerm_resource_group.docker-demo.name
  virtual_network_name = azurerm_virtual_network.docker-demo-vnet.name
  address_prefixes       = ["10.0.2.0/24"]
 }
@@ -42,8 +42,8 @@ resource "azurerm_public_ip" "docker-demo-ip" {
 
 resource "azurerm_network_security_group" "docker-demo-nsg" {
     name                = "docker-demo-nsg"
-    location            = "eastus"
-    resource_group_name = azurerm_resource_group.cdn.name
+    location            = "eastus2"
+    resource_group_name = azurerm_resource_group.docker-demo.name
 
     security_rule {
         name                       = "SSH"
@@ -82,8 +82,8 @@ resource "azurerm_network_security_group" "docker-demo-nsg" {
 
 resource "azurerm_network_interface" "docker-demo-nic" {
     name                        = "docker-demo-nic"
-    location                    = "eastus"
-    resource_group_name         = azurerm_resource_group.cdn.name
+    location                    = "eastus2"
+    resource_group_name         = azurerm_resource_group.docker-demo.name
 
     ip_configuration {
         name                          = "docker-demo-nic-config"
@@ -100,8 +100,8 @@ resource "azurerm_network_interface_security_group_association" "docker-demo-nic
 
 resource "azurerm_linux_virtual_machine" "docker-demo" {
     name                  = "docker-demo"
-    location              = "eastus"
-    resource_group_name   = azurerm_resource_group.cdn.name
+    location              = "eastus2"
+    resource_group_name   = azurerm_resource_group.docker-demo.name
     network_interface_ids = [azurerm_network_interface.docker-demo-nic.id]
     size                  = "Standard_B1ls"
 
