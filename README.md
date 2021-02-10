@@ -1,6 +1,17 @@
 # docker-demo
 A demo Flask+Redis app to demonstrate writing Dockerfiles and docker-compose
 
+## What is Docker?
+
+Docker is a containerization engine. 
+
+### Ok, so what are containers?
+
+You can think of a container like a lightweight virtual machine, running only what it needs and only having the minimum files needed. Containers solve the problem of "it works on my machine" by shipping a working machine along with your app. Virtual machines do the same, but at the much higher cost of having to run an entire OS. 
+
+![Ian Coldwater explains containers](./what-is-docker.png)
+![Docker VS VMs](./docker-vs-vms.png)
+
 ## Bare-Metal Setup
 
 ### Virtual Environments and Package Management
