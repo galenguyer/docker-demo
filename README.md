@@ -25,12 +25,12 @@ global system. Use `pip install -r requirements.txt`
 ### Running Your App
 First, make sure Redis is installed and running. On Debian/Ubuntu, this can be done with `sudo apt install redis`
 
-You can run your app with the following command: `gunicorn demo:APP --bind=localhost:5000`
+You can run your app with the following command: `gunicorn demo:APP --bind=0.0.0.0:80`
 
 Awesome! You now have a working thingy. Now we're gonna make it work better
 
 ## Running in Docker
-First off, create the Docker network we'll use so the containers can talk to each other with `docker network create bridge br0`. Next, start Redis with the following command: `docker run --name redis --detach --interactive --tty --rm --publish 6379:6379 --network br0 redis`
+First off, create the Docker network we'll use so the containers can talk to each other with `docker network create br0`. Next, start Redis with the following command: `docker run --name redis --detach --interactive --tty --rm --publish 6379:6379 --network br0 redis`
 
 Next, build the docker image with `docker build -t docker-demo .`. Then run with the command `docker run --name docker-demo --detach --interactive --tty --rm --publish 80:8080 --network br0 --env REDIS_HOST="redis" docker-demo`
 
