@@ -130,3 +130,7 @@ dmypy.json
 
 # Secrets file
 config.py
+
+.terraform/
+*.tfstate*
+*.hcl
