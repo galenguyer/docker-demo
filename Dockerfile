@@ -1,4 +1,4 @@
-FROM python:3.8-alpine
+FROM docker.io/python:3.8-alpine
 LABEL maintainer="Galen Guyer <galen@galenguyer.com>"
 
 RUN apk add tzdata && \
@@ -6,6 +6,7 @@ RUN apk add tzdata && \
     echo "America/New_York" > /etc/timezone && \
     apk del tzdata
 
+RUN mkdir /app
 WORKDIR /app
 ADD requirements.txt /app
 RUN pip install -r requirements.txt
